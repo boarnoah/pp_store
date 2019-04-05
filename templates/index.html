@@ -6,5 +6,10 @@
 </head>
 <body>
 
+    {% for pizza in pizzas %}
+        <div>
+            {{ pizza['name'] }}
+        </div>
+    {% endfor %}
 </body>
 </html>
