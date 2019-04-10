@@ -33,3 +33,6 @@ def index():
 if __name__ == '__main__':
     print("wololo")
     app.run(port=8080, debug=True)
+    # Note requires a run before it saves db (possibly only an issue with sqlite)
+    # Doesn't update with schema changes so watchout for that
+    db.create_all()
