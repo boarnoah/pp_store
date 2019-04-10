@@ -6,7 +6,8 @@ from wtforms.validators import DataRequired, NumberRange
 from sqlalchemy import exc as SQLAlchemyException
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://ppdb:swordfish@ppdbmysql.ct4sai8mxgm9.us-east-2.rds.amazonaws.com:3306/ppdb'
+app.config[
+    'SQLALCHEMY_DATABASE_URI'] = 'mysql://ppdb:swordfish@ppdbmysql.ct4sai8mxgm9.us-east-2.rds.amazonaws.com:3306/ppdb'
 db = SQLAlchemy(app)
 
 
@@ -21,6 +22,7 @@ class Pizza(db.Model):
     def __repr__(self):
         return 'Pizza, id: {}, name: {}, price: {}'.format(self.id, self.name, self.price)
 
+
 class Order(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), unique=False, nullable=False)
@@ -29,16 +31,17 @@ class Order(db.Model):
     pizza_count = db.Column(db.Integer, unique=False, nullable=False)
 
 
-class OrderForm (FlaskForm):
+class OrderForm(FlaskForm):
     name = StringField('name', validators=[DataRequired()])
     address = StringField('name', validators=[DataRequired()])
+
 
 # ex: how to add entries to db
 # foo = Order(name='I C Wiener', address="1 Yonge St", pizza_id=pizzas[0].id)
 #
 # db.session.add(foo)
 # db.session.commit()
-    
+
 @app.route('/')
 def index():
     try:
@@ -46,11 +49,13 @@ def index():
     except SQLAlchemyException.OperationalError:
         pizzas = []
 
-    return render_template('index.html', pizzas=pizzas) #Renders template, with list queried from db
+    return render_template('index.html', pizzas=pizzas)  # Renders template, with list queried from db
+
 
 @app.route('/pizza')
 def pizza():
     return render_template('pizza.html')
+
 
 if __name__ == '__main__':
     print("wololo")
