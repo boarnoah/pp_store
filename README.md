@@ -33,3 +33,9 @@ c) If you wanna connect to the db directly
 
     mysql -h ppdbmysql.ct4sai8mxgm9.us-east-2.rds.amazonaws.com -D ppdb
 
+
+d) To build docker image and push to ECR (so it can be deployed by ECS)
+    
+    docker build -t pp_store_c .
+    
+Then follow instructions found under "view push commands" in ecr repo
