@@ -1,0 +1,12 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - docker build -t pp_store_c .
+  post_build:
+    run-as: Linux-user-name
+    commands:
+      - docker tag pp_store_c:latest 377037547774.dkr.ecr.us-east-2.amazonaws.com/pp_store_c:latest
+      - $(aws ecr get-login --no-include-email --region us-east-2)
+      - docker push 377037547774.dkr.ecr.us-east-2.amazonaws.com/pp_store_c:latest
