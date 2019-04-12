@@ -11,25 +11,28 @@
         <div class="row">
 
             <div class="col-lg-3">
-                <h1 class="my-4">Shop Name</h1>
-                <div class="list-group">
-                    <a href="#" class="list-group-item active">Category 1</a>
-                    <a href="#" class="list-group-item">Category 2</a>
-                    <a href="#" class="list-group-item">Category 3</a>
+                <div>
+                    <h1 class="my-4">Panucci's Pizza <img  src="https://static.bigppizza.net/pp_logo-profile.png" width="128px" height="128px" align="right"></h1>
                 </div>
+                <br>
+                <br>
+                <div class="list-group">
+                    <a href="#" class="list-group-item">Pizzas</a>
+                    <a href="#" class="list-group-item">TBD</a>
+                    <a href="#" class="list-group-item">TBD</a>
+                </div>
+
             </div>
             <!-- /.col-lg-3 -->
 
             <div class="col-lg-9">
 
                 <div class="card mt-4">
-                    <img class="card-img-top img-fluid" src="http://placehold.it/900x400" alt="">
+                    <img class="card-img-top img-fluid" src="{{ pizza.img }}" alt="{{ pizza.name }}">
                     <div class="card-body">
-                        <h3 class="card-title">Product Name</h3>
-                        <h4>$24.99</h4>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente dicta
-                            fugit fugiat hic aliquam itaque facere, soluta. Totam id dolores, sint aperiam sequi
-                            pariatur praesentium animi perspiciatis molestias iure, ducimus!</p>
+                        <h3 class="card-title">{{ pizza.name }}</h3>
+                        <h4>{{ "${:,.2f}".format(pizza.price / 100) }}</h4>
+                        <p class="card-text">{{ pizza.long_desc }}</p>
                         <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span> 4.0 stars
                     </div>
                 </div>
@@ -40,10 +43,8 @@
                         Product Reviews
                     </div>
                     <div class="card-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore,
-                            similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat
-                            laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-                        <small class="text-muted">Posted by Anonymous on 3/1/17</small>
+                        <p>My Pizza never arrived, terrible service!</p>
+                        <small class="text-muted">Posted by I.C Wiener on 1/1/2000</small>
                         <hr>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore,
                             similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat

@@ -56,13 +56,23 @@ def index():
     return render_template('index.html', pizzas=pizzas)  # Renders template, with list queried from db
 
 
-@app.route('/pizza')
-def pizza():
-    return render_template('pizza.html')
+@app.route('/pizza/<pizza_id>')
+def pizza(pizza_id):
+    pizza = Pizza.query.filter_by(id=pizza_id).first()
+
+    if pizza:
+        return render_template('pizza.html', pizza=pizza)
+    else:
+        return render_template("404.html")
 
 @app.route('/contact')
 def contact():
     return render_template('contact.html')
+
+
+@app.route("/ssh")
+def inside_joke():
+    return render_template('inside_joke.html')
 
 if __name__ == '__main__':
     print("wololo")

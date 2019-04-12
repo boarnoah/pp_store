@@ -19,7 +19,7 @@
                 <div class="list-group">
                     <a href="#" class="list-group-item">Pizzas</a>
                     <a href="#" class="list-group-item">TBD</a>
-                    <a href="#" class="list-group-item">TBD</a>
+                    <a href="/ssh" class="list-group-item">TBD</a>
                 </div>
 
             </div>
@@ -58,7 +58,7 @@
                     {% for pizza in pizzas %}
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="card h-100">
-                            <a href="/pizza/{{ pizza.id }}}"><img class="card-img-top" src="{{ pizza.img }}" alt="{{ pizza.name }}"></a>
+                            <a href="/pizza/{{ pizza.id }}"><img class="card-img-top" src="{{ pizza.img }}" alt="{{ pizza.name }}"></a>
                             <div class="card-body">
                                 <h4 class="card-title">
                                     <a href="/pizza/{{ pizza.id }}">{{ pizza.name }}</a>
