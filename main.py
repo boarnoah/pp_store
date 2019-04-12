@@ -30,6 +30,10 @@ class Order(db.Model):
     pizza_id = db.Column(db.Integer, db.ForeignKey(Pizza.id), nullable=False)
     pizza_count = db.Column(db.Integer, unique=False, nullable=False)
 
+    def __repr__(self):
+        return 'Order, id: {}, name: {}, address: {}. Pizza: {}, count: {}'.format(self.id, self.name, self.price,
+                                                                                   self.pizza_id, self.pizza_count)
+
 
 class OrderForm(FlaskForm):
     name = StringField('name', validators=[DataRequired()])
@@ -56,6 +60,9 @@ def index():
 def pizza():
     return render_template('pizza.html')
 
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
 
 if __name__ == '__main__':
     print("wololo")

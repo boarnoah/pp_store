@@ -1,4 +1,9 @@
-{% extends "default.html" %} {% block title %}Pizza X{% endblock %} {% block head %} {{ super() }} {% endblock %}
+{% extends "default.html" %}
+{% set active_page = "pizza" %}
+{% block title %}Pizza{% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
 {% block content %}
     <!-- Page Content -->
     <div class="container">

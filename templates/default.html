@@ -7,10 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    {#
-  <title>Shop Item - Start Bootstrap Template</title>#} {% block head %}
-    <title>{% block title %}{% endblock %} - Pannuci's Pizza</title>
-{% endblock %}
+    {% block head %}
+        <title>{% block title %}{% endblock %} - Panucci's Pizza</title>
+    {% endblock %}
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -31,21 +30,21 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
+            {% set navigation_bar = [
+                ('/', 'index', 'Home'),
+                ('/pizza', 'pizza', 'Pizza'),
+                ('/contact', 'contact', 'Contact Us')
+                ]-%}
+            {% set active_page = active_page|default('index') -%}
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Pizzas</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
-                </li>
+                {% for href, id, caption in navigation_bar %}
+                    <li class="nav-item {{ 'active' if id == active_page else 'wtf' }}">
+                        <a class="nav-link" href="{{ href|e }}">
+                            {{ caption|e }}
+                            <span class="sr-only">{{ caption|e }}</span>
+                        </a>
+                    </li>
+                {% endfor %}
             </ul>
         </div>
     </div>
