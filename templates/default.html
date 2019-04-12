@@ -24,7 +24,7 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="#">Pannucci's Pizza</a>
+        <a class="navbar-brand" href="/">Panucci's Pizza</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -32,7 +32,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             {% set navigation_bar = [
                 ('/', 'index', 'Home'),
-                ('/pizza', 'pizza', 'Pizza'),
+                ('#', 'pizza', 'Pizza'),
                 ('/contact', 'contact', 'Contact Us')
                 ]-%}
             {% set active_page = active_page|default('index') -%}
@@ -57,7 +57,7 @@
 <!-- Footer -->
 <footer class="py-5 bg-dark">
     <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Pannuci's Pizza 2019</p>
+        <p class="m-0 text-center text-white">Copyright &copy; Panucci's Pizza 2019</p>
     </div>
     <!-- /.container -->
 </footer>
