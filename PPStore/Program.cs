@@ -1,11 +1,6 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 
 namespace PPStore
 {
@@ -23,7 +18,8 @@ namespace PPStore
             return Host.CreateDefaultBuilder(args).ConfigureWebHostDefaults(webBuilder =>
             {
                 webBuilder.UseStartup<Startup>();
-                webBuilder.UseUrls($"http://{(env.Equals("Development") ? "localhost:8089" : "0.0.0.0:8080")}");
+                webBuilder.UseUrls($"http://{(env.Equals("Development") ? "localhost:5000" : "0.0.0.0:5000")}",
+                    $"https://{(env.Equals("Development") ? "localhost:5000" : "0.0.0.0:5000")}");
             });
         }
     }
