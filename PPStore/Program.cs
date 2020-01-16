@@ -18,8 +18,7 @@ namespace PPStore
             return Host.CreateDefaultBuilder(args).ConfigureWebHostDefaults(webBuilder =>
             {
                 webBuilder.UseStartup<Startup>();
-                webBuilder.UseUrls($"http://{(env.Equals("Development") ? "localhost:5000" : "0.0.0.0:5000")}",
-                    $"https://{(env.Equals("Development") ? "localhost:5000" : "0.0.0.0:5000")}");
+                webBuilder.UseUrls($"https://{(env.Equals("Development") ? "localhost:5001" : "0.0.0.0:5001")}");
             });
         }
     }
