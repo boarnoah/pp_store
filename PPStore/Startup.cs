@@ -28,9 +28,8 @@ namespace PPStore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddDbContext<ApplicationDbContext>(options =>
-           //     options.UseSqlServer("Server=DESKTOP-13V7GKB\\SQLEXPRESS;Database=PPstore;Integrated Security=True"));
-            services.AddEntityFrameworkNpgsql().AddDbContext<ApplicationDbContext>(options => options.UseNpgsql("User ID=postgres;Password=omar1234;Host=localhost;Port=5432;Database=pp_store"));
+            services.AddEntityFrameworkNpgsql().AddDbContext<ApplicationDbContext>(options =>
+                options.UseNpgsql(Configuration.GetConnectionString("default")));
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
